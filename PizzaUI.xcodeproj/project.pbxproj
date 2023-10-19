@@ -11,6 +11,7 @@
 		4B346D692AE19220009D98C5 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B346D682AE19220009D98C5 /* SplashView.swift */; };
 		4B346D6B2AE19221009D98C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B346D6A2AE19221009D98C5 /* Assets.xcassets */; };
 		4B346D6E2AE19221009D98C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B346D6D2AE19221009D98C5 /* Preview Assets.xcassets */; };
+		4B346D7C2AE1B1FD009D98C5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B346D7B2AE1B1FD009D98C5 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		4B346D682AE19220009D98C5 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		4B346D6A2AE19221009D98C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B346D6D2AE19221009D98C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4B346D7B2AE1B1FD009D98C5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		4B346D792AE19715009D98C5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4B346D7B2AE1B1FD009D98C5 /* Color.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			files = (
 				4B346D692AE19220009D98C5 /* SplashView.swift in Sources */,
 				4B346D672AE19220009D98C5 /* PizzaUIApp.swift in Sources */,
+				4B346D7C2AE1B1FD009D98C5 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
