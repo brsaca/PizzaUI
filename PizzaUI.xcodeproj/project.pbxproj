@@ -21,6 +21,7 @@
 		4B346D8C2AE1B4D6009D98C5 /* Figtree-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B346D852AE1B4D6009D98C5 /* Figtree-Bold.ttf */; };
 		4B346D8D2AE1B4D6009D98C5 /* Figtree-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B346D862AE1B4D6009D98C5 /* Figtree-Black.ttf */; };
 		4B346D8F2AE1B50C009D98C5 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B346D8E2AE1B50C009D98C5 /* Fonts.swift */; };
+		4B346D922AE1BD6D009D98C5 /* PizzaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B346D912AE1BD6D009D98C5 /* PizzaList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		4B346D862AE1B4D6009D98C5 /* Figtree-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Figtree-Black.ttf"; sourceTree = "<group>"; };
 		4B346D8E2AE1B50C009D98C5 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		4B346D902AE1B6C4009D98C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4B346D912AE1BD6D009D98C5 /* PizzaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		4B346D772AE196D4009D98C5 /* PizzaList */ = {
 			isa = PBXGroup;
 			children = (
+				4B346D912AE1BD6D009D98C5 /* PizzaList.swift */,
 			);
 			path = PizzaList;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B346D922AE1BD6D009D98C5 /* PizzaList.swift in Sources */,
 				4B346D7E2AE1B2D2009D98C5 /* View.swift in Sources */,
 				4B346D8F2AE1B50C009D98C5 /* Fonts.swift in Sources */,
 				4B346D692AE19220009D98C5 /* SplashView.swift in Sources */,
