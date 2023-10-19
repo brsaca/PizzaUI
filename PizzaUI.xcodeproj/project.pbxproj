@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B346D672AE19220009D98C5 /* PizzaUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B346D662AE19220009D98C5 /* PizzaUIApp.swift */; };
-		4B346D692AE19220009D98C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B346D682AE19220009D98C5 /* ContentView.swift */; };
+		4B346D692AE19220009D98C5 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B346D682AE19220009D98C5 /* SplashView.swift */; };
 		4B346D6B2AE19221009D98C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B346D6A2AE19221009D98C5 /* Assets.xcassets */; };
 		4B346D6E2AE19221009D98C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B346D6D2AE19221009D98C5 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		4B346D632AE19220009D98C5 /* PizzaUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B346D662AE19220009D98C5 /* PizzaUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaUIApp.swift; sourceTree = "<group>"; };
-		4B346D682AE19220009D98C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4B346D682AE19220009D98C5 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		4B346D6A2AE19221009D98C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B346D6D2AE19221009D98C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,9 +51,11 @@
 		4B346D652AE19220009D98C5 /* PizzaUI */ = {
 			isa = PBXGroup;
 			children = (
-				4B346D662AE19220009D98C5 /* PizzaUIApp.swift */,
-				4B346D682AE19220009D98C5 /* ContentView.swift */,
-				4B346D6A2AE19221009D98C5 /* Assets.xcassets */,
+				4B346D742AE19661009D98C5 /* App */,
+				4B346D752AE1966B009D98C5 /* Core */,
+				4B346D792AE19715009D98C5 /* Extension */,
+				4B346D782AE19704009D98C5 /* Model */,
+				4B346D7A2AE19725009D98C5 /* Resources */,
 				4B346D6C2AE19221009D98C5 /* Preview Content */,
 			);
 			path = PizzaUI;
@@ -65,6 +67,60 @@
 				4B346D6D2AE19221009D98C5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4B346D742AE19661009D98C5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4B346D662AE19220009D98C5 /* PizzaUIApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4B346D752AE1966B009D98C5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4B346D772AE196D4009D98C5 /* PizzaList */,
+				4B346D762AE196CA009D98C5 /* Splash */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4B346D762AE196CA009D98C5 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				4B346D682AE19220009D98C5 /* SplashView.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		4B346D772AE196D4009D98C5 /* PizzaList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PizzaList;
+			sourceTree = "<group>";
+		};
+		4B346D782AE19704009D98C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B346D792AE19715009D98C5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		4B346D7A2AE19725009D98C5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4B346D6A2AE19221009D98C5 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B346D692AE19220009D98C5 /* ContentView.swift in Sources */,
+				4B346D692AE19220009D98C5 /* SplashView.swift in Sources */,
 				4B346D672AE19220009D98C5 /* PizzaUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
