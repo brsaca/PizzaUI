@@ -14,29 +14,38 @@ struct SplashView: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            GeometryReader { geo in
-                Image("pizzaSplash")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 344, height: 344)
-                    .mask(SliceMask(progress: progress).fill(style: FillStyle(eoFill: true)))
-                    .onAppear {
-                        // Start a timer to increment the progress
-                        let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                            withAnimation(Animation.linear(duration: 1)) {
-                                if progress < 1.0 {
-                                    progress += 1.0 / 8.0
-                                } else {
-                                    // Image is fully shown, activate navigation
-                                    isNavigationActive = true
+            if (!isNavigationActive) {
+                GeometryReader { geo in
+                    Image("pizzaSplash")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 344, height: 344)
+                        .mask(SliceMask(progress: progress).fill(style: FillStyle(eoFill: true)))
+                        .onAppear {
+                            // Start a timer to increment the progress
+                            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                                withAnimation(Animation.linear(duration: 1)) {
+                                    if progress < 1.0 {
+                                        progress += 1.0 / 8.0
+                                    } else {
+                                        // Image is fully shown, activate navigation
+                                        isNavigationActive = true
+                                    }
                                 }
                             }
+                            timer.fire()
                         }
-                        timer.fire()
-                    }
+                }
+                .frame(width: 344, height: 344)
+            } else {
+                RoundedRectangle(cornerRadius: 20)
+                    .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+                    .foregroundColor(Color.pBackground)
+                    .edgesIgnoringSafeArea(.all)
             }
-            .frame(width: 344, height: 344)
         }
+        .navigationBarHidden(true)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
