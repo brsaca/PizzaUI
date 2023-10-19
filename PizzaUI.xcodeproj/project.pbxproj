@@ -13,6 +13,14 @@
 		4B346D6E2AE19221009D98C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B346D6D2AE19221009D98C5 /* Preview Assets.xcassets */; };
 		4B346D7C2AE1B1FD009D98C5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B346D7B2AE1B1FD009D98C5 /* Color.swift */; };
 		4B346D7E2AE1B2D2009D98C5 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B346D7D2AE1B2D2009D98C5 /* View.swift */; };
+		4B346D872AE1B4D6009D98C5 /* Figtree-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B346D802AE1B4D6009D98C5 /* Figtree-Medium.ttf */; };
+		4B346D882AE1B4D6009D98C5 /* Figtree-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B346D812AE1B4D6009D98C5 /* Figtree-SemiBold.ttf */; };
+		4B346D892AE1B4D6009D98C5 /* Figtree-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B346D822AE1B4D6009D98C5 /* Figtree-Light.ttf */; };
+		4B346D8A2AE1B4D6009D98C5 /* Figtree-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B346D832AE1B4D6009D98C5 /* Figtree-ExtraBold.ttf */; };
+		4B346D8B2AE1B4D6009D98C5 /* Figtree-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B346D842AE1B4D6009D98C5 /* Figtree-Regular.ttf */; };
+		4B346D8C2AE1B4D6009D98C5 /* Figtree-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B346D852AE1B4D6009D98C5 /* Figtree-Bold.ttf */; };
+		4B346D8D2AE1B4D6009D98C5 /* Figtree-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B346D862AE1B4D6009D98C5 /* Figtree-Black.ttf */; };
+		4B346D8F2AE1B50C009D98C5 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B346D8E2AE1B50C009D98C5 /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +31,15 @@
 		4B346D6D2AE19221009D98C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4B346D7B2AE1B1FD009D98C5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4B346D7D2AE1B2D2009D98C5 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		4B346D802AE1B4D6009D98C5 /* Figtree-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Figtree-Medium.ttf"; sourceTree = "<group>"; };
+		4B346D812AE1B4D6009D98C5 /* Figtree-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Figtree-SemiBold.ttf"; sourceTree = "<group>"; };
+		4B346D822AE1B4D6009D98C5 /* Figtree-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Figtree-Light.ttf"; sourceTree = "<group>"; };
+		4B346D832AE1B4D6009D98C5 /* Figtree-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Figtree-ExtraBold.ttf"; sourceTree = "<group>"; };
+		4B346D842AE1B4D6009D98C5 /* Figtree-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Figtree-Regular.ttf"; sourceTree = "<group>"; };
+		4B346D852AE1B4D6009D98C5 /* Figtree-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Figtree-Bold.ttf"; sourceTree = "<group>"; };
+		4B346D862AE1B4D6009D98C5 /* Figtree-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Figtree-Black.ttf"; sourceTree = "<group>"; };
+		4B346D8E2AE1B50C009D98C5 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		4B346D902AE1B6C4009D98C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +72,7 @@
 		4B346D652AE19220009D98C5 /* PizzaUI */ = {
 			isa = PBXGroup;
 			children = (
+				4B346D902AE1B6C4009D98C5 /* Info.plist */,
 				4B346D742AE19661009D98C5 /* App */,
 				4B346D752AE1966B009D98C5 /* Core */,
 				4B346D792AE19715009D98C5 /* Extension */,
@@ -116,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				4B346D7B2AE1B1FD009D98C5 /* Color.swift */,
+				4B346D8E2AE1B50C009D98C5 /* Fonts.swift */,
 				4B346D7D2AE1B2D2009D98C5 /* View.swift */,
 			);
 			path = Extension;
@@ -124,9 +143,24 @@
 		4B346D7A2AE19725009D98C5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4B346D7F2AE1B4C7009D98C5 /* Fonts */,
 				4B346D6A2AE19221009D98C5 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4B346D7F2AE1B4C7009D98C5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4B346D862AE1B4D6009D98C5 /* Figtree-Black.ttf */,
+				4B346D852AE1B4D6009D98C5 /* Figtree-Bold.ttf */,
+				4B346D832AE1B4D6009D98C5 /* Figtree-ExtraBold.ttf */,
+				4B346D822AE1B4D6009D98C5 /* Figtree-Light.ttf */,
+				4B346D802AE1B4D6009D98C5 /* Figtree-Medium.ttf */,
+				4B346D842AE1B4D6009D98C5 /* Figtree-Regular.ttf */,
+				4B346D812AE1B4D6009D98C5 /* Figtree-SemiBold.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,8 +221,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B346D8C2AE1B4D6009D98C5 /* Figtree-Bold.ttf in Resources */,
+				4B346D8B2AE1B4D6009D98C5 /* Figtree-Regular.ttf in Resources */,
 				4B346D6E2AE19221009D98C5 /* Preview Assets.xcassets in Resources */,
 				4B346D6B2AE19221009D98C5 /* Assets.xcassets in Resources */,
+				4B346D892AE1B4D6009D98C5 /* Figtree-Light.ttf in Resources */,
+				4B346D8A2AE1B4D6009D98C5 /* Figtree-ExtraBold.ttf in Resources */,
+				4B346D8D2AE1B4D6009D98C5 /* Figtree-Black.ttf in Resources */,
+				4B346D882AE1B4D6009D98C5 /* Figtree-SemiBold.ttf in Resources */,
+				4B346D872AE1B4D6009D98C5 /* Figtree-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B346D7E2AE1B2D2009D98C5 /* View.swift in Sources */,
+				4B346D8F2AE1B50C009D98C5 /* Fonts.swift in Sources */,
 				4B346D692AE19220009D98C5 /* SplashView.swift in Sources */,
 				4B346D672AE19220009D98C5 /* PizzaUIApp.swift in Sources */,
 				4B346D7C2AE1B1FD009D98C5 /* Color.swift in Sources */,
@@ -339,6 +381,7 @@
 				DEVELOPMENT_TEAM = 3RQAYNAD56;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PizzaUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -368,6 +411,7 @@
 				DEVELOPMENT_TEAM = 3RQAYNAD56;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PizzaUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
