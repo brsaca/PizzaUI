@@ -21,7 +21,7 @@ struct PizzaList: View {
                     NavBar
                     
                     // Carrousel
-                    
+                    Carrousel
                     
                     // Sizes
                     
@@ -32,7 +32,6 @@ struct PizzaList: View {
                 }
                 .padding()
             }
-            
     }
 }
 
@@ -40,19 +39,19 @@ extension PizzaList {
     var NavBar: some View {
         HStack {
             getCircleButton(for: "arrow.left", action: {})
-               
+            
             Spacer()
             
             VStack(alignment: .center) {
                 Text("Pizzas")
                     .font(.figtree(.regular, size: 16))
-                  .multilineTextAlignment(.center)
-                  .foregroundColor(.black.opacity(0.7))
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.black.opacity(0.7))
                 
                 Text("Pepperoni Blast")
                     .font(.figtree(.semibold))
-                  .multilineTextAlignment(.center)
-                  .foregroundColor(.black)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.black)
             }
             
             Spacer()
@@ -79,6 +78,27 @@ extension PizzaList {
                     
                 }
         }
+    }
+    
+    var Carrousel: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack {
+                  ForEach(Pizza.MOCK_PIZZAS) { pizza in
+                    Image(pizza.image)
+                        .resizable()
+                        .frame(width: 244, height: 244)
+                        .scaledToFill()
+                        .scrollTransition(.animated, axis: .horizontal) {
+                            content, phase in
+                            content
+                                .scaleEffect(phase.isIdentity ? 1.0 : 0.5)
+                        }
+                }
+            }.scrollTargetLayout()
+        }
+        .scrollTargetBehavior(.viewAligned)
+        .frame(maxWidth: 300, maxHeight: 300)
+        .safeAreaPadding(.horizontal, 40)
     }
 }
 
