@@ -26,19 +26,22 @@ struct PizzaList: View {
     @State private var sizeSelected: Sizes = .medium
     @State private var pizzaSelected: Pizza = Pizza.MOCK_PIZZAS[0]
     @State private var isZoomOn: Bool = false
+    @State private var quantity: Int = 1
+    @State private var amount: Double = 0
     
     var body: some View {
         ZStack {
             if isZoomOn {
-                Image(pizzaSelected.image)
+                Image(pizzaSelected.imageCompleted)
                     .resizable()
                     .scaledToFill()
-                    .scaleEffect(2.5)
+                    .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
                     .onTapGesture {
                         withAnimation {
                             isZoomOn.toggle()
                         }
                     }
+                    .ignoresSafeArea(.all)
             } else {
                 // Circle background
                 Circle()
@@ -57,6 +60,7 @@ struct PizzaList: View {
                     Sizes
                     
                     // Details
+                    PizzaInfo
                     
                     // Quantity
                     Spacer()
@@ -102,13 +106,13 @@ extension PizzaList {
             Circle()
                 .frame(width: 48)
                 .foregroundStyle(.white)
+                .shadow(radius: 5)
                 .overlay {
                     Image(systemName: image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 24, height: 24)
                         .foregroundColor(.black)
-                    
                 }
         }
     }
@@ -154,6 +158,8 @@ extension PizzaList {
         HStack {
             getCircleButtonWithLetter(for: .small, action: {
                 sizeSelected = .small
+                
+                setTotalAmount()
             })
             .padding(.top, 15)
             
@@ -167,6 +173,8 @@ extension PizzaList {
                 
                 getCircleButtonWithLetter(for: .medium, action: {
                     sizeSelected = .medium
+                    
+                    setTotalAmount()
                 })
             }
             
@@ -174,6 +182,8 @@ extension PizzaList {
             
             getCircleButtonWithLetter(for: .large, action: {
                 sizeSelected = .large
+                
+                setTotalAmount()
             })
             .padding(.top, 15)
         }
@@ -194,6 +204,77 @@ extension PizzaList {
                     .foregroundColor(size == sizeSelected ? .white : .black)
             }
         }
+    }
+    
+    var PizzaInfo: some View {
+        VStack {
+            Text(pizzaSelected.details)
+                .font(.figtree(.regular, size: 14))
+                .lineSpacing(10)
+                .padding()
+            
+            HStack {
+                getQuantityControl()
+                
+                Text(amount.formatWithCurrency())
+                    .font(.figtree(.bold, size: 24))
+                
+                Button {
+                    
+                } label: {
+                    Text("Add")
+                        .font(.figtree(.bold))
+                        .foregroundStyle(.white)
+                }
+                .frame(width: 83, height: 48)
+                .background(Color.pButton)
+                .clipShape(Capsule())
+                .padding()
+            }
+            .padding(.vertical)
+        }
+        .onAppear {
+            setTotalAmount()
+        }
+            
+    }
+    
+    @ViewBuilder
+    func getQuantityControl() -> some View {
+        HStack {
+            getCircleButton(for: "minus", action: {
+                if (quantity > 1) {
+                    quantity -= 1
+                    setTotalAmount()
+                }
+            })
+            
+            Spacer()
+            
+            Text("\(quantity)")
+                .font(.figtree(.bold, size: 24))
+            
+            Spacer()
+            
+            getCircleButton(for: "plus", action: {
+                quantity += 1
+                setTotalAmount()
+            })
+        }
+        .frame(width: 144, height: 48)
+        .background(Color.pBackground)
+        .cornerRadius(48)
+    }
+}
+
+extension PizzaList {
+    private func setTotalAmount() {
+        let price = switch sizeSelected {
+        case .small: pizzaSelected.priceSmall
+        case .medium: pizzaSelected.priceMedium
+        case .large: pizzaSelected.priceLarge
+        }
+        amount = Double(quantity) * price
     }
 }
 
