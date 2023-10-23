@@ -47,7 +47,7 @@ struct PizzaList: View {
                 Circle()
                     .frame(width: UIScreen.main.bounds.size.width * 2)
                     .foregroundStyle(Color.pBackground)
-                    .offset(y: -290)
+                    .offset(y: -320)
                 
                 VStack {
                     // Navbar
@@ -65,7 +65,6 @@ struct PizzaList: View {
                     // Quantity
                     Spacer()
                 }
-                .padding()
                 .frame(width: UIScreen.main.bounds.size.width)
             }
         }
@@ -119,39 +118,41 @@ extension PizzaList {
     
     var Carrousel: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack {
+            LazyHStack(spacing: sizeSelected == .small ? 90 : (sizeSelected == .medium ? 30 : 0)) {
                 ForEach(Pizza.MOCK_PIZZAS) { pizza in
-                    ZStack {
-                        Image(pizza.image)
-                            .resizable()
-                            .frame(width: sizeSelected.pizzaWidth, height: sizeSelected.pizzaWidth)
-                            .scaledToFill()
-                            .scrollTransition(.animated, axis: .horizontal) {
-                                content, phase in
-                                content
-                                    .scaleEffect(phase.isIdentity ? 1.0 : 0.5)
-                            }
-                        
-                        Button {
-                            pizzaSelected = pizza
-                            withAnimation {
-                                isZoomOn.toggle()
-                            }
-                            
-                        } label: {
-                            Image(systemName: "magnifyingglass")
+                        ZStack {
+                            Image(pizza.image)
                                 .resizable()
-                                .scaledToFit()
-                                .foregroundStyle(.white)
-                                .frame(width: 40, height: 40)
-                                .rotationEffect(Angle(degrees: 100))
-                        }
+                                .frame(width:  sizeSelected.pizzaWidth, height: sizeSelected.pizzaWidth)
+                                .scaledToFill()
+                                .scrollTransition(.animated, axis: .horizontal) { content, phase in
+                                    content
+                                        .scaleEffect(phase.isIdentity ? 1.0 : 0.5)
+                                }
+                            
+                            Button {
+                                pizzaSelected = pizza
+                                withAnimation {
+                                    isZoomOn.toggle()
+                                }
+                                
+                            } label: {
+                                Image(systemName: "magnifyingglass")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .foregroundStyle(.white)
+                                    .frame(width: 40, height: 40)
+                                    .rotationEffect(Angle(degrees: 100))
+                            }
+                       
                     }
+                    .frame(width: sizeSelected.pizzaWidth)
+                    .padding(.top, sizeSelected == .small ? 20 : 10)
                 }
             }.scrollTargetLayout()
         }
         .scrollTargetBehavior(.viewAligned)
-        .frame(maxHeight: 300)
+        .frame(maxWidth: .infinity, maxHeight: 280)
     }
     
     var Sizes: some View {
@@ -236,7 +237,7 @@ extension PizzaList {
         .onAppear {
             setTotalAmount()
         }
-            
+        
     }
     
     @ViewBuilder
