@@ -7,31 +7,50 @@
 
 import SwiftUI
 
+enum Sizes: String {
+    case small = "S"
+    case medium = "M"
+    case large = "L"
+    
+    var pizzaWidth: CGFloat {
+        switch (self){
+        case .small: return 196
+        case .medium: return 244
+        case .large: return 274
+        }
+    }
+}
+
 struct PizzaList: View {
+    // MARK: View Properties
+    @State private var sizeSelected: Sizes = .medium
+    
     var body: some View {
-            ZStack {
-                // Circle background
-                Circle()
-                    .frame(width: UIScreen.main.bounds.size.width * 2)
-                    .foregroundStyle(Color.pBackground)
-                    .offset(y: -300)
+        ZStack {
+            // Circle background
+            Circle()
+                .frame(width: UIScreen.main.bounds.size.width * 2)
+                .foregroundStyle(Color.pBackground)
+                .offset(y: -290)
+            
+            VStack {
+                // Navbar
+                NavBar
                 
-                VStack {
-                    // Navbar
-                    NavBar
-                    
-                    // Carrousel
-                    Carrousel
-                    
-                    // Sizes
-                    
-                    // Details
-                    
-                    // Quantity
-                    Spacer()
-                }
-                .padding()
+                // Carrousel
+                Carrousel
+                
+                // Sizes
+                Sizes
+                
+                // Details
+                
+                // Quantity
+                Spacer()
             }
+            .padding()
+            .frame(width: UIScreen.main.bounds.size.width)
+        }
     }
 }
 
@@ -58,7 +77,7 @@ extension PizzaList {
             
             getCircleButton(for: "heart", action: {})
         }
-        .frame(maxWidth: UIScreen.main.bounds.size.width - 30)
+       .frame(maxWidth: UIScreen.main.bounds.size.width - 50)
     }
     
     @ViewBuilder
@@ -83,22 +102,69 @@ extension PizzaList {
     var Carrousel: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack {
-                  ForEach(Pizza.MOCK_PIZZAS) { pizza in
-                    Image(pizza.image)
-                        .resizable()
-                        .frame(width: 244, height: 244)
-                        .scaledToFill()
-                        .scrollTransition(.animated, axis: .horizontal) {
-                            content, phase in
-                            content
-                                .scaleEffect(phase.isIdentity ? 1.0 : 0.5)
-                        }
+                ForEach(Pizza.MOCK_PIZZAS) { pizza in
+                    ZStack {
+                        Image(pizza.image)
+                            .resizable()
+                            .frame(width: sizeSelected.pizzaWidth, height: sizeSelected.pizzaWidth)
+                            .scaledToFill()
+                            .scrollTransition(.animated, axis: .horizontal) {
+                                content, phase in
+                                content
+                                    .scaleEffect(phase.isIdentity ? 1.0 : sizeSelected == .small ? 0.1 : 0.5)
+                            }
+                    }
                 }
             }.scrollTargetLayout()
         }
         .scrollTargetBehavior(.viewAligned)
-        .frame(maxWidth: 300, maxHeight: 300)
-        .safeAreaPadding(.horizontal, 40)
+        .frame(maxHeight: 300)
+    }
+    
+    var Sizes: some View {
+        HStack {
+            getCircleButtonWithLetter(for: .small, action: {
+                sizeSelected = .small
+            })
+                .padding(.top, 15)
+            
+            Spacer()
+            
+            VStack {
+                Image("banana")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 97, height: 63)
+                
+                getCircleButtonWithLetter(for: .medium, action: {
+                    sizeSelected = .medium
+                })
+            }
+            
+            Spacer()
+            
+            getCircleButtonWithLetter(for: .large, action: {
+                sizeSelected = .large
+            })
+                .padding(.top, 15)
+        }
+        .padding(.horizontal, 60)
+    }
+    
+    @ViewBuilder
+    func getCircleButtonWithLetter(for size: Sizes, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            ZStack {
+                Circle()
+                    .fill(size == sizeSelected ? .black : .white)
+                    .frame(width: 48, height: 48)
+                    .shadow(radius: 5)
+                
+                Text(size.rawValue)
+                    .font(.figtree(.semibold, size: 18))
+                    .foregroundColor(size == sizeSelected ? .white : .black)
+            }
+        }
     }
 }
 
