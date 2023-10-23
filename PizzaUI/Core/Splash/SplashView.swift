@@ -11,8 +11,10 @@ struct SplashView: View {
     // MARK: View Properties
     @State private var progress = 0.01
     @State private var isNavigationActive = false
+    @State private var isFullCover = false
     
     var body: some View {
+        
         VStack(alignment: .center) {
             if (!isNavigationActive) {
                 GeometryReader { geo in
@@ -42,10 +44,18 @@ struct SplashView: View {
                     .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
                     .foregroundColor(Color.pBackground)
                     .edgesIgnoringSafeArea(.all)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            isFullCover = true
+                        }
+                    }
             }
         }
         .navigationBarHidden(true)
         .edgesIgnoringSafeArea(.all)
+        .fullScreenCover(isPresented: $isFullCover, content: {
+            PizzaList()
+        })
     }
 }
 
