@@ -24,32 +24,46 @@ enum Sizes: String {
 struct PizzaList: View {
     // MARK: View Properties
     @State private var sizeSelected: Sizes = .medium
+    @State private var pizzaSelected: Pizza = Pizza.MOCK_PIZZAS[0]
+    @State private var isZoomOn: Bool = false
     
     var body: some View {
         ZStack {
-            // Circle background
-            Circle()
-                .frame(width: UIScreen.main.bounds.size.width * 2)
-                .foregroundStyle(Color.pBackground)
-                .offset(y: -290)
-            
-            VStack {
-                // Navbar
-                NavBar
+            if isZoomOn {
+                Image(pizzaSelected.image)
+                    .resizable()
+                    .scaledToFill()
+                    .scaleEffect(2.5)
+                    .onTapGesture {
+                        withAnimation {
+                            isZoomOn.toggle()
+                        }
+                    }
+            } else {
+                // Circle background
+                Circle()
+                    .frame(width: UIScreen.main.bounds.size.width * 2)
+                    .foregroundStyle(Color.pBackground)
+                    .offset(y: -290)
                 
-                // Carrousel
-                Carrousel
-                
-                // Sizes
-                Sizes
-                
-                // Details
-                
-                // Quantity
-                Spacer()
+                VStack {
+                    // Navbar
+                    NavBar
+                    
+                    // Carrousel
+                    Carrousel
+                    
+                    // Sizes
+                    Sizes
+                    
+                    // Details
+                    
+                    // Quantity
+                    Spacer()
+                }
+                .padding()
+                .frame(width: UIScreen.main.bounds.size.width)
             }
-            .padding()
-            .frame(width: UIScreen.main.bounds.size.width)
         }
     }
 }
@@ -77,7 +91,7 @@ extension PizzaList {
             
             getCircleButton(for: "heart", action: {})
         }
-       .frame(maxWidth: UIScreen.main.bounds.size.width - 50)
+        .frame(maxWidth: UIScreen.main.bounds.size.width - 50)
     }
     
     @ViewBuilder
@@ -111,8 +125,23 @@ extension PizzaList {
                             .scrollTransition(.animated, axis: .horizontal) {
                                 content, phase in
                                 content
-                                    .scaleEffect(phase.isIdentity ? 1.0 : sizeSelected == .small ? 0.1 : 0.5)
+                                    .scaleEffect(phase.isIdentity ? 1.0 : 0.5)
                             }
+                        
+                        Button {
+                            pizzaSelected = pizza
+                            withAnimation {
+                                isZoomOn.toggle()
+                            }
+                            
+                        } label: {
+                            Image(systemName: "magnifyingglass")
+                                .resizable()
+                                .scaledToFit()
+                                .foregroundStyle(.white)
+                                .frame(width: 40, height: 40)
+                                .rotationEffect(Angle(degrees: 100))
+                        }
                     }
                 }
             }.scrollTargetLayout()
@@ -126,7 +155,7 @@ extension PizzaList {
             getCircleButtonWithLetter(for: .small, action: {
                 sizeSelected = .small
             })
-                .padding(.top, 15)
+            .padding(.top, 15)
             
             Spacer()
             
@@ -146,7 +175,7 @@ extension PizzaList {
             getCircleButtonWithLetter(for: .large, action: {
                 sizeSelected = .large
             })
-                .padding(.top, 15)
+            .padding(.top, 15)
         }
         .padding(.horizontal, 60)
     }
