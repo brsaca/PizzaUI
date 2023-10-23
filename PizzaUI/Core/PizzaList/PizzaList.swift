@@ -47,23 +47,26 @@ struct PizzaList: View {
                 Circle()
                     .frame(width: UIScreen.main.bounds.size.width * 2)
                     .foregroundStyle(Color.pBackground)
-                    .offset(y: -320)
+                    .offset(y: -280)
                 
                 VStack {
                     // Navbar
                     NavBar
+                        .padding()
                     
                     // Carrousel
                     Carrousel
                     
                     // Sizes
                     Sizes
+                        .padding()
+                    
+                    
+                    Spacer()
                     
                     // Details
                     PizzaInfo
-                    
-                    // Quantity
-                    Spacer()
+
                 }
                 .frame(width: UIScreen.main.bounds.size.width)
             }
@@ -152,7 +155,7 @@ extension PizzaList {
             }.scrollTargetLayout()
         }
         .scrollTargetBehavior(.viewAligned)
-        .frame(maxWidth: .infinity, maxHeight: 280)
+        .frame(width: .infinity, height: 300)
     }
     
     var Sizes: some View {
@@ -162,7 +165,6 @@ extension PizzaList {
                 
                 setTotalAmount()
             })
-            .padding(.top, 15)
             
             Spacer()
             
@@ -186,9 +188,9 @@ extension PizzaList {
                 
                 setTotalAmount()
             })
-            .padding(.top, 15)
         }
         .padding(.horizontal, 60)
+        .padding(.top, -20)
     }
     
     @ViewBuilder
